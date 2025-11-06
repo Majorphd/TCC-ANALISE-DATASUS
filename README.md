@@ -90,16 +90,16 @@ Conectores Python: mysql-connector-python, pymongo
 Clone o repositório:
 
 Bash
-
+-------------------------------------------------------------
 git clone https://github.com/seu-usuario/seu-repositorio.git
 cd seu-repositorio
 Instale as dependências:
-
+-------------------------------------------------------------
 Bash
-
+-------------------------------------------------------
 pip install pandas mysql-connector-python pymongo requests
 (É recomendado o uso de um ambiente virtual venv)
-
+-------------------------------------------------------
 Pré-requisitos:
 
 Tenha instâncias locais do MySQL e MongoDB em execução.
@@ -120,18 +120,22 @@ A execução deve seguir esta ordem:
 Passo 1: Preparar o Banco de Dados MySQL Este script cria (ou recria) a tabela notificacoes no MySQL com o esquema correto, incluindo as colunas JSON e os campos de enriquecimento.
 
 Bash
-
+-----------------------------
 python preparar_mysql.py
+-----------------------------
 Passo 2: (Opcional) Baixar o CSV de Municípios Se o municipios.csv não estiver na pasta, este script irá baixá-lo.
 
 Bash
-
+---------------------
 python baixar_csv.py
+---------------------
 Passo 3: Executar o Pipeline Principal (ETL-A) Este é o script principal. Ele fará todo o processo: ler o JSON, analisar, transformar, enriquecer e carregar os dados no MongoDB e no MySQL.
 
 Bash
-
+------------------------
 python carregar_dados.py
+------------------------
+
 Saída Esperada: O terminal exibirá o progresso, incluindo a Análise Exploratória (EDA) e o log de carregamento dos 31 lotes no MySQL, finalizando com:
 
 ...
